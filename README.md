@@ -45,17 +45,31 @@ Visit **http://127.0.0.1:8000/** in your browser.
 
 ## 🎥 Showcase
 
-The login feature:
-![Home](./showcase/login.gif)
+### 🔑 The Login Feature
+A demonstration of the user login process:
 
-The workflow of the site:
-![Event](./showcase/workflow.gif)
+![Login](./showcase/login.gif)
 
-The comments system:
-![Checkout](./showcase/comments.gif)
+---
 
-The purchasing prototype:
-![Checkout](./showcase/purchase.gif)
+### 🔄 The Workflow of the Site
+A step-by-step guide on how users interact with the platform:
+
+![Workflow](./showcase/workflow.gif)
+
+---
+
+### 💬 The Comments System
+Users can leave reviews and feedback on events:
+
+![Comments](./showcase/comments.gif)
+
+---
+
+### 🛒 The Purchasing Prototype
+A preview of the ticket purchasing system:
+
+![Purchase](./showcase/purchase.gif)
 
 
 ## 🛠 Tech Stack
