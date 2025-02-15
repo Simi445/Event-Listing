@@ -45,11 +45,10 @@ Visit **http://127.0.0.1:8000/** in your browser.
 
 ## 🎥 Showcase
 
-![Home](showcase/home.gif)
+![Home](./showcase/home.gif)
+![Event](./showcase/event.gif)
+![Checkout](./showcase/checkout.gif)
 
-![Event](showcase/event.gif)
-
-![Checkout](showcase/checkout.gif)
 
 ## 🛠 Tech Stack
 - **Backend:** Django, Django REST Framework
