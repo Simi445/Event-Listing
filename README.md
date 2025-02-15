@@ -53,7 +53,7 @@ A demonstration of the user login process:
 ---
 
 ### 🔄 The Workflow of the Site
-A step-by-step guide on how users interact with the platform:
+A short tour on how users might interact with the platform:
 
 ![Workflow](./showcase/workflow.gif)
 
