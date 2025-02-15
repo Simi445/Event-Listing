@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/style_login.css' %}">
+</head>
+<body>
+    <div class="popup" id="popup-message">{% if error %}{{ error }}{% endif %}</div>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            <input type="hidden" name="template_name" value="{{ template_name }}">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="login-button">Login</button>
+                <button type="button" class="register-button" onclick="window.location.href='{% url 'register' %}?next={{ next }}'">Register</button>
+            </div>
+        </form>
+    </div>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var popup = document.getElementById("popup-message");
+            if (popup.textContent.trim() !== "") {
+                popup.style.display = "block";
+                setTimeout(function() {
+                    popup.style.display = "none";
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

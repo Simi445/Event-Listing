@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Page</title>
+    <link rel="stylesheet" href="{% static 'css/dashstyle.css' %}">
+
+<!--    asta pentru sign in warning-->
+    <style>
+        .modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    text-align: center;
+    z-index: 10000;
+}
+
+.modal-content a {
+    color: purple; /* Set Sign-In link color to purple */
+    text-decoration: none; /* Optional: Remove underline */
+    font-weight: bold; /* Optional: Make the text bold */
+}
+
+.modal-content a:hover {
+    text-decoration: underline; /* Optional: Add underline on hover */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+}
+    </style>
+
+
+</head>
+<body data-authenticated="{{ user.is_authenticated|yesno:'true,false' }}">
+<div class = "container">
+    <div class="top-nav">
+        <div class="menu">
+            <a href="{% url 'about' %}">About Us</a>
+            <a href="{% url 'concert-EC' 4 %}" class="buy-ticket-button">Get tickets!</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'user-profile' %}" data-requires-auth="true">User-Profile</a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" >Log-Off</a>
+            {% else %}
+                <a href="{% url 'login' %}">Sign-In</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="most-popular-label">
+            Most Popular Event: Electric Castle
+        </div>
+
+        <div class = "event-date-container">
+            <div class="event-date">
+                FROM July 12<br>
+                TO July 16, 2025
+            </div>
+            <img src="{% static 'images/fireworks.png' %}" alt="Fireworks" class="fireworks">
+        </div>
+
+        <div class="main-heading">Tickets<br>Available</div>
+    </div>
+</div>
+    <div class="balloon"></div>
+    <div class="balloon-opposite"></div>
+    <svg class="balloon-tail" width="100" height="200" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50,0 C70,50 30,100 50,200" stroke="black" stroke-width="3" fill="none"/>
+    </svg>
+
+    <svg class="balloon-tail-opposite" width="100" height="200" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50,0 C70,50 30,100 50,200" stroke="black" stroke-width="3" fill="none"/>
+    </svg>
+
+    <!-- event grid -->
+    <div class="events-container">
+        {% for event in events %}
+    {% if forloop.counter < events|length %}
+        <div class="event-card">
+            {% if forloop.counter == 1 %}
+                <a href="{% url 'concert-untold' forloop.counter %}">
+            {% elif forloop.counter == 2 %}
+                <a href="{% url 'concert-rockstadt' forloop.counter %}">
+            {% elif forloop.counter == 3 %}
+                <a href="{% url 'concert-WM' forloop.counter %}">
+            {% endif %}
+                <div class="event-image">
+                    <img src="{% static event.img_url %}" alt="{{ event.name }}">
+                </div>
+                <div class="event-info">
+                    <span class="event-tag">{{ event.category }}</span>
+                    <h3 class="event-name">{{ event.name }}</h3>
+                    <p class="event-description">{{ event.description }}</p>
+                </div>
+            </a>
+        </div>
+    {% endif %}
+{% endfor %}
+    <!--        pentru autentificate-->
+        <div id="authModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>You need to log in to access this feature. Please <a href="{% url 'login' %}">Sign-In</a>.</p>
+            </div>
+        </div>
+
+
+ <script>
+
+     <!--    tot asta pentru sign in warning-->
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('Script loaded');
+
+            const isAuthenticated = document.body.getAttribute('data-authenticated') === 'true';
+            console.log('User authenticated:', isAuthenticated);
+
+            const modal = document.getElementById('authModal');
+            if (!modal) {
+                console.error('Modal element not found');
+                return;
+            }
+
+            console.log('Modal element found:', modal);
+
+            const authRequiredLinks = document.querySelectorAll('a[data-requires-auth]');
+            authRequiredLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    console.log('Link clicked:', link.href);
+                    if (!isAuthenticated) {
+                        event.preventDefault();
+                        console.log('Displaying modal');
+                        modal.style.display = 'block';
+                    } else {
+                        console.log('User authenticated; proceeding to link');
+                    }
+                });
+            });
+
+            const closeModalButton = modal.querySelector('.close');
+            if (closeModalButton) {
+                closeModalButton.addEventListener('click', function () {
+                    console.log('Closing modal');
+                    modal.style.display = 'none';
+                });
+            }
+
+            window.addEventListener('click', function (event) {
+                if (event.target === modal) {
+                    console.log('Click outside modal; closing modal');
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

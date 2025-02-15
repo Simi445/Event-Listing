@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Success</title>
+    <link rel="stylesheet" href="{% static 'css/style_purchase.css' %}">
+</head>
+<body>
+
+<!-- Gradient Polygon Background -->
+<div class="polygon-background">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color: #ff9999; stop-opacity: 1;" />
+                <stop offset="100%" style="stop-color: #ffcc66; stop-opacity: 1;" />
+            </linearGradient>
+            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color: #66cccc; stop-opacity: 1;" />
+                <stop offset="100%" style="stop-color: #ff99cc; stop-opacity: 1;" />
+            </linearGradient>
+            <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color: #ffccff; stop-opacity: 1;" />
+                <stop offset="100%" style="stop-color: #ccffcc; stop-opacity: 1;" /> <
+            </linearGradient>
+        </defs>
+        <polygon points="10,0 90,0 70,100 0,70" class="polygon1" />
+        <polygon points="20,10 80,10 60,90 10,60" class="polygon2" />
+        <polygon points="40,0 100,20 90,100 30,80" class="polygon3" />
+    </svg>
+</div>
+
+<div class="purchase-success-container">
+    <div class="check-mark">✔</div>
+    <h1 class="success-message">Purchase Successful!</h1>
+    <p class="timer">Redirecting to the main page in <span id="countdown">3</span> seconds...</p>
+</div>
+
+<script>
+    let seconds = 3;
+    const countdownElement = document.getElementById('countdown');
+
+    const timer = setInterval(() => {
+        seconds--;
+        countdownElement.textContent = seconds;
+
+        if (seconds <= 0) {
+            clearInterval(timer);
+            window.location.href = "{% url 'home' %}"; // Redirect to the main page
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>

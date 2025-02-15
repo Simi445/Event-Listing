@@ -1,0 +1,290 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Broadcast by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Replacement</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'assets/css/mainwm.css' %}" />
+
+		<style>
+        .modal {
+		display: none;
+		position: fixed;
+		z-index: 9999; /* Ensure it is above everything else */
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
+	}
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+
+
+	</head>
+	<body data-authenticated="{{ user.is_authenticated|yesno:'true,false' }}">
+
+			<!-- Banner -->
+			<!--
+				To use a video as your background, set data-video to the name of your video without
+				its extension (eg. images/banner). Your video must be available in both .mp4 and .webm
+				formats to work correctly.
+			-->
+				<section id="banner" data-video="images/banner">
+					<div class="inner">
+						<header>
+							<h1>We love music</h1>
+							<p>We Love Music Concert is an exhilarating live event where music lovers come together to celebrate the power and passion of sound. Featuring a diverse lineup of artists from across genres, this concert is a sonic journey that transcends boundaries.</p>
+						</header>
+						<a href="{% url 'ticket' event.id %}" class="buy-ticket-button" data-requires-auth="true">Buy Ticket</a>
+						<input type="hidden" name="event_selected" value="{{ event.id }}">
+					</div>
+				</section>
+
+		<!-- Main -->
+			<div id="main">
+
+			<!-- One -->
+				<section class="wrapper style1">
+					<div class="inner">
+						<header class="align-center">
+							<h2>Unforgettable moments</h2>
+							<p>Captured and immortalised as they were</p>
+						</header>
+						<!-- 2 Column Video Section -->
+							<div class="flex flex-2">
+								<div class="video">
+									<div class="image fit">
+										<img src="{% static 'images/wm12.jpg' %}" alt="" />
+										<div class="arrow">
+											<div class="icon fa-play"></div>
+										</div>
+									</div>
+									<a href="https://www.youtube.com/watch?v=dGfKXTo6VnQ" class="link"><span>Click Me</span></a>
+								</div>
+								<div class="video">
+									<div class="image fit">
+										<img src="{% static 'images/wm14.jpg' %}" alt="" />
+										<div class="arrow">
+											<div class="icon fa-play"></div>
+										</div>
+									</div>
+									<a href="https://www.youtube.com/watch?app=desktop&v=Oeb-iReVZm8" class="link"><span>Click Me</span></a>
+								</div>
+							</div>
+					</div>
+				</section>
+
+			<!-- Two -->
+				<section class="wrapper style2">
+					<div class="inner">
+						<header>
+							<h2>A figment of our experiences</h2>
+							<p>Come and experience them yourself!</p>
+						</header>
+						<!-- Tabbed Video Section -->
+							<div class="flex flex-tabs">
+								<div class="tabs">
+
+									<!-- Tab 1 -->
+										<div class="tab tab-1 flex flex-3 active">
+											<!-- Video Thumbnail -->
+												<div class="video col">
+													<div class="image fit">
+														<img src="{% static 'images/pic10.jpg' %}" alt="" />
+													</div>
+												</div>
+											<!-- Video Thumbnail -->
+												<div class="video col">
+													<div class="image fit">
+														<img src="{% static 'images/pic03.jpg' %}" alt="" />
+													</div>
+												</div>
+											<!-- Video Thumbnail -->
+												<div class="video col">
+													<div class="image fit">
+														<img src="{% static 'images/pic05.jpg' %}" alt="" />
+													</div>
+												</div>
+											<!-- Video Thumbnail -->
+												<div class="video col">
+													<div class="image fit">
+														<img src="{% static 'images/wm01.jpg' %}" alt="" />
+													</div>
+												</div>
+											<!-- Video Thumbnail -->
+												<div class="video col">
+													<div class="image fit">
+														<img src="{% static 'images/wm02.jpg' %}" alt="" />
+													</div>
+												</div>
+											<!-- Video Thumbnail -->
+												<div class="video col">
+													<div class="image fit">
+														<img src="{% static 'images/wm03.jpg' %}" alt="" />
+													</div>
+												</div>
+										</div>
+								</div>
+							</div>
+					</div>
+				</section>
+
+			<!-- Three -->
+				<section class="wrapper ">
+					<div class="inner">
+						<header class="align-center">
+							<h2>The most popular bands</h2>
+						</header>
+
+						<!-- 3 Column Video Section -->
+							<div class="flex flex-3">
+
+								<div class="border-window">
+									<div class="image fit">
+										<img src="{% static 'images/connectr.jpg' %}" alt="" />
+									</div>
+									<p class="caption">
+										Connect-R
+									</p>
+								</div>
+
+								<div class="border-window">
+									<div class="image fit">
+										<img src="{% static 'images/atb.jpg' %}" alt="" />
+									</div>
+									<p class="caption">
+										ATB
+									</p>
+								</div>
+
+
+								<div class="border-window">
+									<div class="image fit">
+										<img src="{% static 'images/ingrid.jpg' %}" alt="" />
+									</div>
+									<p class="caption">
+										In-grid
+									</p>
+								</div>
+							</div>
+					</div>
+				</section>
+
+			</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section id="comment-section">
+					<h3>Leave a Comment</h3>
+					<form id="comment-form" method="POST" action="{% url 'post_comment' %}">
+						{% csrf_token %}
+						<textarea name="comment" id="comment" rows="4" placeholder="Add a public comment..."></textarea>
+						<!-- Hidden field to pass the event ID -->
+						<input type="hidden" name="event_id" value="{{ event.id }}">
+						<button type="submit" data-requires-auth="true">Comment</button>
+					</form>
+
+					<div id="comments-list">
+					<h4>Comments</h4>
+					<ul>
+						{% for comment in comments %}
+						<li>
+							<div class="comment">
+								<strong>{{ comment.user.username }}</strong>
+								<p>{{ comment.comment }}</p>
+								<small>Posted {{ comment.created_at|timesince }} ago</small>
+							</div>
+						</li>
+						{% empty %}
+						<li>No comments yet.</li>
+						{% endfor %}
+					</ul>
+				</div>
+
+				</section>
+			</div>
+		</footer>
+<div id="authModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>You need to log in to access this feature. Please <a href="{% url 'login' %}?next={{ request.path|urlencode }}">Sign-In</a>.</p>
+            </div>
+        </div>
+<script>
+     <!--    tot asta pentru sign in warning-->
+     document.addEventListener('DOMContentLoaded', function () {
+    console.log('Script loaded');
+
+    const isAuthenticated = document.body.getAttribute('data-authenticated') === 'true';
+    console.log('User authenticated:', isAuthenticated);
+
+    const modal = document.getElementById('authModal');
+    if (!modal) {
+        console.error('Modal element not found');
+        return;
+    }
+
+    console.log('Modal element found:', modal);
+
+    // Handle links and buttons requiring authentication
+    const authRequiredElements = document.querySelectorAll('[data-requires-auth]');
+    authRequiredElements.forEach(element => {
+        element.addEventListener('click', function (event) {
+            console.log('Element clicked:', element.href || element.innerText);
+            if (!isAuthenticated) {
+                event.preventDefault(); // Stop navigation or form submission
+                console.log('Displaying modal');
+                modal.style.display = 'block';
+            } else {
+                console.log('User authenticated; proceeding');
+            }
+        });
+    });
+
+    // Close modal functionality
+    const closeModalButton = modal.querySelector('.close');
+    if (closeModalButton) {
+        closeModalButton.addEventListener('click', function () {
+            console.log('Closing modal');
+            modal.style.display = 'none';
+        });
+    }
+
+
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            console.log('Click outside modal; closing modal');
+            modal.style.display = 'none';
+        }
+    });
+});
+    </script>
+	</body>
+</html>

@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #A8A4FF 0%, #9C89FF 100%); /* gradient background, very important */
+    color: #333;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/static/images/music.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.7;
+    z-index: -1;
+    filter: blur(3px) brightness(0.7);
+}
+
+
+
+.ec-logo-card img {
+    width: 100px;
+    border-radius: 15px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background: linear-gradient(135deg, rgba(6, 58, 207, 0.8), rgba(115, 11, 228, 0.94));
+    width: 75%;
+    margin: 0 auto;
+    border-radius: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+
+.logo-image {
+    width: 40px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive;
+    font-weight: bold;
+    color: #FFEA45;
+}
+
+
+/* menu and right links */
+.menu{
+    display: flex;
+    /*align-items: center;*/
+    gap: 30px;
+}
+
+
+a{
+    text-decoration: none !important;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #eee;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #fff;
+}
+
+.menu a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover{
+    background-color: rgba(132, 65, 248, 0.85); /* Darken the background on hover */
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 50px;
+    position: relative;
+    animation: fadeIn 1.5s ease;
+}
+
+
+.container
+{
+    background: linear-gradient(135deg, rgba(186, 100, 255, 0.2), rgba(147, 51, 234, 0.2)); /* violet gradient */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.most-popular-label {
+    font-size: 2.5rem;
+    color: #fff;
+     background: linear-gradient(135deg, rgba(29, 78, 216, 0.8), rgba(147, 51, 234, 0.8));
+    backdrop-filter: blur(10px);
+    padding: 20px 40px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    display: inline-block;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 255, 255, 0.5);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: glowEffect 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowEffect {
+    0% {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 25px rgba(255, 255, 255, 0.9);
+    }
+}
+
+.most-popular-label {
+    background: linear-gradient(135deg, rgba(29, 78, 216, 0.8), rgba(147, 51, 234, 0.8));
+}
+
+.main-content .event-date {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #000000;
+    background: linear-gradient(135deg, rgba(249, 255, 31, 0.94), rgba(232, 201, 147, 0.94));
+backdrop-filter: blur(10px);
+    padding: 20px 40px;
+    text-transform: uppercase;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.main-heading {
+    font-size: 8rem; /* Make the text big and bold */
+    color: #ffffff; /* Make the text white */
+    text-align: center; /* Center the text */
+    line-height: 1.1;
+    letter-spacing: -2px;
+    text-transform: uppercase; /* Capitalize the text */
+    background: linear-gradient(135deg, rgba(147, 51, 234, 1), rgb(117, 144, 239));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Create a gradient inside the text */
+    position: relative;
+    z-index: 2;
+    animation: glowEffect 0.5s ease-in-out infinite alternate; /* Add a glow effect */
+    padding: 0 20px;
+}
+
+@keyframes glowEffect {
+    0% {
+        text-shadow: 0 0 10px rgba(147, 51, 234, 0.7), 0 0 20px rgba(147, 51, 234, 0.7), 0 0 30px rgba(29, 78, 216, 0.7);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(147, 51, 234, 0.9), 0 0 30px rgba(29, 78, 216, 0.9), 0 0 40px rgba(147, 51, 234, 1);
+    }
+}
+
+.balloon {
+    position: absolute;
+    right: 100px;
+    bottom: 200px;
+    width: 150px;
+    height: 150px;
+    background-color: pink;
+    border-radius: 50%;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    transform: rotate(-15deg);
+    z-index: 2;
+}
+
+.balloon-opposite {
+    position: absolute;
+    left: 100px; /* Mirroring the 'right' value */
+    bottom: 200px; /* Same 'bottom' value to keep it at the same height */
+    width: 150px;
+    height: 150px;
+    background-color: pink;
+    border-radius: 50%;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    transform: rotate(15deg); /* Rotating in the opposite direction */
+    z-index: 2;
+}
+
+/* balloon tail (SVG) */
+.balloon-tail {
+    position: absolute;
+    right: 130px;
+    bottom: 9px;
+    z-index: 1;
+}
+
+.balloon-tail-opposite {
+    position: absolute;
+    left: 130px;
+    bottom: 9px;
+    z-index: 1;
+}
+
+.event-date-container {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+
+.fireworks {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    z-index: 2;
+}
+
+
+
+
+
+
+/* now for the events */
+
+
+.events-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* space between event cards */
+    padding: 40px;
+    margin-top: 50px;
+}
+
+.event-card {
+    width: calc(33.333% - 20px); /* 3 cards per row */
+    height: 600px;
+    background-color: #a28cff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+/* Hover Effect */
+.event-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Event Image */
+.event-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+}
+
+/* Event Info */
+.event-info {
+    padding: 15px;
+    color: white;
+}
+
+/* Event Tag */
+.event-tag {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+/* Event Name */
+.event-name {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+/* Event Description */
+.event-description {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Event Date */
+.event-date {
+    font-size: 1rem;
+    color: #e0e0ff;
+    margin-bottom: 10px;
+}
+
+/* Event Location Link */
+.event-location {
+    font-size: 1rem;
+    color: #e0e0ff;
+    text-decoration: none;
+}
+
+.event-location:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .event-card {
+        width: calc(50% - 20px); /* 2 cards per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .event-card {
+        width: calc(100% - 20px); /* 1 card per row */
+    }
+}
+
+
+/*Asta pentru modal!!!!*/

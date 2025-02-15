@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Website About Us Page HTML CSS</title>
+    <link rel="stylesheet" href="{% static 'css/style_about.css' %}">
+  </head>
+  <body>
+    <div class="polygon-background"></div>
+
+    <!-- About Us Section -->
+    <section class="about-us">
+      <div class="about">
+        <img src="{% static 'images/music.jpg' %}" class="pic" />
+        <div class="text">
+          <h2>About Us</h2>
+          <h5>Access & <span>Insight</span></h5>
+          <p>
+            Our mission is to provide anyone with an accessible and insightful way to experience events in a seamless and intuitive manner.
+            Our platform is designed to provide you with the best possible experience, whether you are a first-time user or a seasoned event-goer.
+            Because of our flahsy, slick design, you can easily navigate through our platform and find the events that suit your taste.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

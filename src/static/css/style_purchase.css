@@ -1,0 +1,71 @@
+body {
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%); /* Soft gradient background */
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.purchase-success-container {
+    text-align: center;
+    margin-top: 100px;
+    position: relative;
+    z-index: 2; /* Keep content above the polygons */
+}
+
+.check-mark {
+    font-size: 100px;
+    color: white;
+    background-color: #ffdd99; /* Light and warm yellow */
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(255, 221, 153, 0.6), 0 0 30px rgba(255, 221, 153, 0.6); /* Soft glow */
+}
+
+.success-message {
+    font-size: 32px;
+    color: #555;
+    margin: 20px 0;
+}
+
+.timer {
+    font-size: 20px;
+    color: #777;
+}
+
+/* Gradient polygons */
+.polygon-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; /* Behind the content */
+}
+
+.polygon-background svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2; /* Softer opacity for a more pleasant background */
+}
+
+.polygon1 {
+    fill: url(#gradient1);
+}
+
+.polygon2 {
+    fill: url(#gradient2);
+}
+
+.polygon3 {
+    fill: url(#gradient3);
+}
