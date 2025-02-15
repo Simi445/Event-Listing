@@ -45,9 +45,17 @@ Visit **http://127.0.0.1:8000/** in your browser.
 
 ## 🎥 Showcase
 
+The login feature:
 ![Home](./showcase/login.gif)
+
+The workflow of the site:
 ![Event](./showcase/workflow.gif)
+
+The comments system:
 ![Checkout](./showcase/comments.gif)
+
+The purchasing prototype:
+![Checkout](./showcase/purchase.gif)
 
 
 ## 🛠 Tech Stack
